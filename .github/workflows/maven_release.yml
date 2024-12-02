@@ -99,4 +99,5 @@ jobs:
           files: target/aexop-dcs-seq-${{ env.new_version }}.jar
           tag_name: "v${{ env.new_version }}"
         env:
+          GITHUB_ACTOR: ${{ secrets.USER_NAME }}
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
