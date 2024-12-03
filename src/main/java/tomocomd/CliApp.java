@@ -8,8 +8,9 @@ import java.util.Objects;
 import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.Configurator;
-import tomocomd.configuration.subsetsearch.AexopConfig;
+import tomocomd.descriptors.PDComputerFactory;
+import tomocomd.peptides.dcs.PeptidesDCSFactory;
+import tomocomd.peptides.dcs.PeptidesHeadFactory;
 import tomocomd.subsetsearch.AexopDcs;
 
 public class CliApp {
@@ -26,18 +27,16 @@ public class CliApp {
 
     CommandLine cmd = getCommands();
 
-    loadLogConfig(cmd.hasOption("d"));
-
     if (!(cmd.hasOption("p"))) {
-      LOGGER.warn("Project file do not defined");
+      LOGGER.error("Project file do not defined");
       System.exit(-1);
     }
 
     String path = cmd.getOptionValue("p");
-    AexopConfig conf = null;
+    PeptidesAppConfig conf = null;
     try {
       ObjectMapper mapper = new ObjectMapper();
-      conf = mapper.readValue(Paths.get(path).toFile(), AexopConfig.class);
+      conf = mapper.readValue(Paths.get(path).toFile(), PeptidesAppConfig.class);
     } catch (Exception ex) {
       LOGGER.error("Problems loading project file: {}", path, ex);
       System.exit(-1);
@@ -72,11 +71,11 @@ public class CliApp {
 
     File outFile = new File(out);
     if (Objects.isNull(outFile.getParentFile())) {
-      LOGGER.error("Wrong output file path");
+      LOGGER.error("Wrong output file path {}", outFile.getAbsolutePath());
       System.exit(-1);
     }
     if (!outFile.getParentFile().exists()) {
-      LOGGER.error("Wrong output file path");
+      LOGGER.error("Wrong output file path {}", outFile.getAbsolutePath());
       System.exit(-1);
     }
 
@@ -87,20 +86,11 @@ public class CliApp {
 
     File targetFile = new File(target);
     if (!targetFile.exists()) {
-      LOGGER.error("Target do not defined");
+      LOGGER.error("Target do not defined {}", targetFile.getAbsolutePath());
       System.exit(-1);
     }
 
     cli(conf, out, target, fastFile);
-  }
-
-  public void loadLogConfig(boolean printLogs) {
-    String configFileName = printLogs ? "log4j2-enable.xml" : "log4j2-disable.xml";
-    try {
-      Configurator.initialize(null, configFileName);
-    } catch (Exception e) {
-      LOGGER.error("Error loading log configuration: ", e);
-    }
   }
 
   private CommandLine getCommands() {
@@ -146,14 +136,17 @@ public class CliApp {
     return options;
   }
 
-  public void cli(AexopConfig conf, String outFile, String target, String sdfFile) {
+  public void cli(PeptidesAppConfig conf, String outFile, String target, String sdfFile) {
     try {
       AexopDcs aexopDcs =
           new AexopDcs(
               conf,
               new File(outFile).getAbsolutePath(),
               new File(sdfFile).getAbsolutePath(),
-              new File(target).getAbsolutePath());
+              new File(target).getAbsolutePath(),
+              new PDComputerFactory(),
+              new PeptidesHeadFactory(),
+              new PeptidesDCSFactory());
       aexopDcs.compute();
     } catch (Exception e) {
       LOGGER.error(e.getMessage(), e);
