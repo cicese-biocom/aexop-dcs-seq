@@ -15,9 +15,7 @@ public class AppSeqRunTest extends TestCase {
     super(testName);
   }
 
-  /**
-   * @return the suite of tests being tested
-   */
+  /** @return the suite of tests being tested */
   public static Test suite() {
     return new TestSuite(AppSeqRunTest.class);
   }

@@ -8,7 +8,6 @@ import java.util.Objects;
 import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.Configurator;
 import tomocomd.descriptors.PDComputerFactory;
 import tomocomd.peptides.dcs.PeptidesDCSFactory;
 import tomocomd.peptides.dcs.PeptidesHeadFactory;
@@ -92,15 +91,6 @@ public class CliApp {
     }
 
     cli(conf, out, target, fastFile);
-  }
-
-  public void loadLogConfig(boolean printLogs) {
-    String configFileName = printLogs ? "log4j2-enable.xml" : "log4j2-disable.xml";
-    try {
-      Configurator.initialize(null, configFileName);
-    } catch (Exception e) {
-      LOGGER.error("Error loading log configuration: ", e);
-    }
   }
 
   private CommandLine getCommands() {

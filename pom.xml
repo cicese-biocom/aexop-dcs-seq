@@ -12,7 +12,7 @@
 
   <repositories>
     <repository>
-      <id>github</id>
+      <id>aexop-api-github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/cicese-biocom/aexop-api</url>
       <snapshots>
@@ -23,7 +23,7 @@
       </releases>
     </repository>
     <repository>
-      <id>github</id>
+      <id>startpep-md-github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/cicese-biocom/startpep-md</url>
       <snapshots>
@@ -56,7 +56,7 @@
     <dependency>
       <groupId>tomocomd</groupId>
       <artifactId>aexop-api</artifactId>
-      <version>1.0.3</version>
+      <version>1.0.4</version>
     </dependency>
     <dependency>
       <groupId>commons-cli</groupId>
@@ -99,18 +99,21 @@
 
   <build>
     <plugins>
+      <!-- Plugin del compilador -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
         <configuration>
           <source>11</source>
           <target>11</target>
         </configuration>
       </plugin>
+      <!--             Formateo de código-->
       <plugin>
-        <groupId>com.spotify.fmt</groupId>
+        <groupId>com.coveo</groupId>
         <artifactId>fmt-maven-plugin</artifactId>
-        <version>2.21.1</version>
+        <version>2.9</version>
         <executions>
           <execution>
             <goals>
@@ -119,6 +122,7 @@
           </execution>
         </executions>
       </plugin>
+        <!--             Jacoco plugin to start to check coverage -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -139,6 +143,7 @@
           </execution>
         </executions>
       </plugin>
+        <!-- Plugin to set wich test will execute during mvn test -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -149,6 +154,7 @@
           </includes>
         </configuration>
       </plugin>
+        <!-- Plugin to copy test resources -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -174,31 +180,7 @@
           </execution>
         </executions>
       </plugin>
-<!--      <plugin>-->
-<!--        <artifactId>maven-assembly-plugin</artifactId>-->
-<!--        <version>3.3.0</version> &lt;!&ndash; O la versión más reciente &ndash;&gt;-->
-<!--        <configuration>-->
-<!--          <descriptorRefs>-->
-<!--            <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--          </descriptorRefs>-->
-<!--          <finalName>aexop-dcs-seq-${project.version}</finalName>-->
-<!--          <appendAssemblyId>false</appendAssemblyId>-->
-<!--          <archive>-->
-<!--            <manifest>-->
-<!--              <mainClass>tomocomd.AppSeqRun</mainClass>-->
-<!--            </manifest>-->
-<!--          </archive>-->
-<!--        </configuration>-->
-<!--        <executions>-->
-<!--          <execution>-->
-<!--            <id>make-assembly</id>-->
-<!--            <phase>package</phase>-->
-<!--            <goals>-->
-<!--              <goal>single</goal>-->
-<!--            </goals>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--      </plugin>-->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -226,23 +208,12 @@
                 <transformer
                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>
-                    <Multi-Release>true</Multi-Release>
+                    <Main-Class>tomocomd.AppSeqRun</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>
+              <finalName>aexop-dcs-seq-${project.version}</finalName>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Elimina la creación del .jar básico -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.2.0</version>
-        <executions>
-          <execution>
-            <id>default-jar</id>
-            <phase>none</phase> <!-- Omite la creación del .jar básico -->
           </execution>
         </executions>
       </plugin>
