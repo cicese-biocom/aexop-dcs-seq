@@ -8,7 +8,9 @@ import java.util.Objects;
 import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tomocomd.data.PopulationInstances;
 import tomocomd.descriptors.PDComputerFactory;
+import tomocomd.io.CSVManage;
 import tomocomd.peptides.dcs.PeptidesDCSFactory;
 import tomocomd.peptides.dcs.PeptidesHeadFactory;
 import tomocomd.subsetsearch.AexopDcs;
@@ -138,12 +140,13 @@ public class CliApp {
 
   public void cli(PeptidesAppConfig conf, String outFile, String target, String sdfFile) {
     try {
+
       AexopDcs aexopDcs =
           new AexopDcs(
               conf,
               new File(outFile).getAbsolutePath(),
               new File(sdfFile).getAbsolutePath(),
-              new File(target).getAbsolutePath(),
+              new PopulationInstances(CSVManage.loadCSV(target)),
               new PDComputerFactory(),
               new PeptidesHeadFactory(),
               new PeptidesDCSFactory());

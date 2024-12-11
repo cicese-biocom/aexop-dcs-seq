@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Set;
 import org.apache.commons.math3.linear.RealMatrix;
-import tomocomd.configuration.dcs.AttributeType;
+import tomocomd.configuration.dcs.ComputerType;
 import tomocomd.data.PopulationInstances;
 import tomocomd.exceptions.AExOpDCSException;
 import tomocomd.io.ReadPeptideFile;
 import tomocomd.md.ComputeBatch;
 import tomocomd.model.PeptideContainer;
-import tomocomd.peptides.dcs.PDType;
+import tomocomd.peptides.dcs.PeptideComputerType;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 
@@ -44,7 +44,7 @@ public class StartpepDescriptorExecutor implements IAttributeComputer {
   }
 
   @Override
-  public AttributeType getType() {
-    return PDType.STARTPEP;
+  public ComputerType getType() {
+    return PeptideComputerType.STARTPEP;
   }
 }

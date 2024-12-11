@@ -115,7 +115,7 @@ public class StartpepDCS extends AAttributeDCS {
         .agreOpe(agreOpe)
         .group(group)
         .prop(prop)
-        .type(PDType.STARTPEP)
+        .type((PDType) PDType.STARTPEP)
         .build();
   }
 

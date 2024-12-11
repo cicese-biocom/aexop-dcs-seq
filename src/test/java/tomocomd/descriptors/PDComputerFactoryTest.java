@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tomocomd.exceptions.AExOpDCSException;
-import tomocomd.peptides.dcs.PDType;
+import tomocomd.peptides.dcs.PeptideComputerType;
 
 class PDComputerFactoryTest {
 
@@ -18,13 +18,15 @@ class PDComputerFactoryTest {
 
   @Test
   void getComputer() {
-    assertEquals(PDType.STARTPEP, pdComputerFactory.getComputer(PDType.STARTPEP).getType());
+    assertEquals(
+        PeptideComputerType.STARTPEP,
+        pdComputerFactory.getComputer(PeptideComputerType.STARTPEP).getType());
   }
 
   @Test
   void getComputerError() {
     try {
-      pdComputerFactory.getComputer(PDType.STARTPEP);
+      pdComputerFactory.getComputer(PeptideComputerType.STARTPEP);
     } catch (AExOpDCSException e) {
       assertEquals("Invalid PD type", e.getMessage());
     }
