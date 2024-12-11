@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tomocomd.data.PopulationInstances;
 import tomocomd.exceptions.AExOpDCSException;
-import tomocomd.peptides.dcs.PDType;
+import tomocomd.peptides.dcs.PeptideComputerType;
 
 class StartpepDescriptorExecutorTest {
 
@@ -53,6 +53,6 @@ class StartpepDescriptorExecutorTest {
 
   @Test
   void getType() {
-    assertEquals(PDType.STARTPEP, startpepDescriptorExecutor.getType());
+    assertEquals(PeptideComputerType.STARTPEP, startpepDescriptorExecutor.getType());
   }
 }

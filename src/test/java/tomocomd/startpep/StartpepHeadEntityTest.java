@@ -18,7 +18,7 @@ class StartpepHeadEntityTest {
   void setUp() {
     startpepHeadEntity =
         StartpepHeadEntity.builder()
-            .type(PDType.STARTPEP)
+            .type((PDType) PDType.STARTPEP)
             .prop("pie")
             .group("P")
             .agreOpe("N1")
