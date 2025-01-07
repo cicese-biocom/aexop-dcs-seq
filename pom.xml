@@ -92,8 +92,8 @@
 
     <dependency>
       <groupId>tomocomd</groupId>
-      <artifactId>startpep-md</artifactId>
-      <version>0.1.3</version>
+      <artifactId>starpep-md</artifactId>
+      <version>0.1.13</version>
     </dependency>
   </dependencies>
 
