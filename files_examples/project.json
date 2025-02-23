@@ -1,0 +1,487 @@
+{
+  "dcsEvolutiveConfig": {
+    "numDesc": 100,
+    "incest": true,
+    "filtersConfig": [
+      {
+        "type": "NAN",
+        "options": [
+          "-t",
+          "DELETE"
+        ],
+        "level": 1
+      },
+      {
+        "type": "SE",
+        "options": [
+          "-t",
+          "0.15"
+        ],
+        "level": 2
+      }
+    ],
+    "selConf": {
+      "cant": 20,
+      "type": "TOURNAMENT",
+      "options": [
+        "-s",
+        "5"
+      ]
+    },
+    "crossConf": {
+      "type": "HUX",
+      "prob": 1.0
+    },
+    "mutConf": {
+      "gaMutationType": "UNIFORM",
+      "prob": 0.1
+    },
+    "replaceSubConf": {
+      "type": "PARENT"
+    },
+    "attConf": {
+      "type": "CHOQUET",
+      "option": [
+        "-m",
+        "Q-measure",
+        "-i",
+        "Choquet",
+        "-mo",
+        "-l/0.5/-d/[0.3;0.3;0.1;0.05]"
+      ]
+    }
+  },
+  "gaResetConf": {
+    "numIter": 2000
+  },
+  "subsetEva": {
+    "subsetSearchConf": {
+      "subsetSearchType": "BEST_FIRST"
+    },
+    "subSetFitnessConf": {
+      "type": "CFS"
+    },
+    "options": []
+  },
+  "numIter": 10000,
+  "coop": true,
+  "aattributeDCSList": [
+    {
+      "type": "tomocomd.peptides.dcs.startpep.StartpepDCS",
+      "name": "AC",
+      "classicalAggParam": {
+        "params": {
+          "AC": true,
+          "GV": false,
+          "TS": false,
+          "ES": true,
+          "MIC": true,
+          "": true
+        },
+        "paramName": "Classical aggregators"
+      },
+      "aggregatorsParam": {
+        "params": {
+          "Q1": true,
+          "CHOQUET": true,
+          "Q2": true,
+          "MN": true,
+          "P2": true,
+          "Q3": true,
+          "N1": true,
+          "P3": true,
+          "N2": true,
+          "N3": true,
+          "HM": true,
+          "I50": true,
+          "GM": true,
+          "K": true,
+          "MX": true,
+          "AM": true,
+          "SIC": true,
+          "VC": true,
+          "RA": true,
+          "TIC": true,
+          "SD": true,
+          "S": true,
+          "GOWAWA": true,
+          "V": true
+        },
+        "normsAggParam": {
+          "params": {
+            "N1": true,
+            "N2": true,
+            "N3": true
+          },
+          "paramName": "Norms aggregators"
+        },
+        "meansAggParam": {
+          "params": {
+            "GM": true,
+            "AM": true,
+            "P2": true,
+            "P3": true,
+            "HM": true
+          },
+          "paramName": "Means aggregators"
+        },
+        "statisticsAggParam": {
+          "params": {
+            "V": true,
+            "S": true,
+            "K": true,
+            "SD": true,
+            "VC": true,
+            "RA": true,
+            "Q1": true,
+            "Q2": true,
+            "Q3": true,
+            "I50": true,
+            "MX": true,
+            "MN": true
+          },
+          "paramName": "Statistics aggregators"
+        },
+        "choquetAggParam": {
+          "params": {
+            "CHOQUET": true
+          },
+          "paramName": "Choquet aggregators"
+        },
+        "gowawaAggParam": {
+          "params": {
+            "GOWAWA": true
+          },
+          "paramName": "Gowawa aggregators"
+        },
+        "informationAggParam": {
+          "params": {
+            "TIC": true,
+            "SIC": true
+          },
+          "paramName": "Information aggregators"
+        },
+        "paramName": "Aggregations Param"
+      },
+      "groupsParam": {
+        "params": {
+          "T": true,
+          "A": true,
+          "H": true,
+          "P": true,
+          "R": true,
+          "B": true,
+          "F": true,
+          "N": true,
+          "C": true,
+          "U": true,
+          "D": true
+        },
+        "paramName": "Chemical Groups"
+      },
+      "propertyParam": {
+        "params": {
+          "ptt": true,
+          "gcp1": true,
+          "gcp2": true,
+          "eps": true,
+          "scm": true,
+          "scv": true,
+          "pie": true,
+          "pah": true,
+          "pbs": true,
+          "isa": true,
+          "z1": true,
+          "z2": true,
+          "z3": true,
+          "mw": true,
+          "bi": true,
+          "khh": true,
+          "hwhh": true,
+          "cch": true,
+          "kh": true,
+          "cdch": true
+        },
+        "paramName": "Aminoacid properties"
+      }
+    },
+    {
+      "type": "tomocomd.peptides.dcs.startpep.StartpepDCS",
+      "name": "GV",
+      "classicalAggParam": {
+        "params": {
+          "AC": false,
+          "GV": true,
+          "TS": false,
+          "ES": true,
+          "MIC": true,
+          "": true
+        },
+        "paramName": "Classical aggregators"
+      },
+      "aggregatorsParam": {
+        "params": {
+          "Q1": true,
+          "CHOQUET": true,
+          "Q2": true,
+          "MN": true,
+          "P2": true,
+          "Q3": true,
+          "N1": true,
+          "P3": true,
+          "N2": true,
+          "N3": true,
+          "HM": true,
+          "I50": true,
+          "GM": true,
+          "K": true,
+          "MX": true,
+          "AM": true,
+          "SIC": true,
+          "VC": true,
+          "RA": true,
+          "TIC": true,
+          "SD": true,
+          "S": true,
+          "GOWAWA": true,
+          "V": true
+        },
+        "normsAggParam": {
+          "params": {
+            "N1": true,
+            "N2": true,
+            "N3": true
+          },
+          "paramName": "Norms aggregators"
+        },
+        "meansAggParam": {
+          "params": {
+            "GM": true,
+            "AM": true,
+            "P2": true,
+            "P3": true,
+            "HM": true
+          },
+          "paramName": "Means aggregators"
+        },
+        "statisticsAggParam": {
+          "params": {
+            "V": true,
+            "S": true,
+            "K": true,
+            "SD": true,
+            "VC": true,
+            "RA": true,
+            "Q1": true,
+            "Q2": true,
+            "Q3": true,
+            "I50": true,
+            "MX": true,
+            "MN": true
+          },
+          "paramName": "Statistics aggregators"
+        },
+        "choquetAggParam": {
+          "params": {
+            "CHOQUET": true
+          },
+          "paramName": "Choquet aggregators"
+        },
+        "gowawaAggParam": {
+          "params": {
+            "GOWAWA": true
+          },
+          "paramName": "Gowawa aggregators"
+        },
+        "informationAggParam": {
+          "params": {
+            "TIC": true,
+            "SIC": true
+          },
+          "paramName": "Information aggregators"
+        },
+        "paramName": "Aggregations Param"
+      },
+      "groupsParam": {
+        "params": {
+          "T": true,
+          "A": true,
+          "H": true,
+          "P": true,
+          "R": true,
+          "B": true,
+          "F": true,
+          "N": true,
+          "C": true,
+          "U": true,
+          "D": true
+        },
+        "paramName": "Chemical Groups"
+      },
+      "propertyParam": {
+        "params": {
+          "ptt": true,
+          "gcp1": true,
+          "gcp2": true,
+          "eps": true,
+          "scm": true,
+          "scv": true,
+          "pie": true,
+          "pah": true,
+          "pbs": true,
+          "isa": true,
+          "z1": true,
+          "z2": true,
+          "z3": true,
+          "mw": true,
+          "bi": true,
+          "khh": true,
+          "hwhh": true,
+          "cch": true,
+          "kh": true,
+          "cdch": true
+        },
+        "paramName": "Aminoacid properties"
+      }
+    },
+    {
+      "type": "tomocomd.peptides.dcs.startpep.StartpepDCS",
+      "name": "TS",
+      "classicalAggParam": {
+        "params": {
+          "AC": false,
+          "GV": false,
+          "TS": true,
+          "ES": true,
+          "MIC": true,
+          "": true
+        },
+        "paramName": "Classical aggregators"
+      },
+      "aggregatorsParam": {
+        "params": {
+          "Q1": true,
+          "CHOQUET": true,
+          "Q2": true,
+          "MN": true,
+          "P2": true,
+          "Q3": true,
+          "N1": true,
+          "P3": true,
+          "N2": true,
+          "N3": true,
+          "HM": true,
+          "I50": true,
+          "GM": true,
+          "K": true,
+          "MX": true,
+          "AM": true,
+          "SIC": true,
+          "VC": true,
+          "RA": true,
+          "TIC": true,
+          "SD": true,
+          "S": true,
+          "GOWAWA": true,
+          "V": true
+        },
+        "normsAggParam": {
+          "params": {
+            "N1": true,
+            "N2": true,
+            "N3": true
+          },
+          "paramName": "Norms aggregators"
+        },
+        "meansAggParam": {
+          "params": {
+            "GM": true,
+            "AM": true,
+            "P2": true,
+            "P3": true,
+            "HM": true
+          },
+          "paramName": "Means aggregators"
+        },
+        "statisticsAggParam": {
+          "params": {
+            "V": true,
+            "S": true,
+            "K": true,
+            "SD": true,
+            "VC": true,
+            "RA": true,
+            "Q1": true,
+            "Q2": true,
+            "Q3": true,
+            "I50": true,
+            "MX": true,
+            "MN": true
+          },
+          "paramName": "Statistics aggregators"
+        },
+        "choquetAggParam": {
+          "params": {
+            "CHOQUET": true
+          },
+          "paramName": "Choquet aggregators"
+        },
+        "gowawaAggParam": {
+          "params": {
+            "GOWAWA": true
+          },
+          "paramName": "Gowawa aggregators"
+        },
+        "informationAggParam": {
+          "params": {
+            "TIC": true,
+            "SIC": true
+          },
+          "paramName": "Information aggregators"
+        },
+        "paramName": "Aggregations Param"
+      },
+      "groupsParam": {
+        "params": {
+          "T": true,
+          "A": true,
+          "H": true,
+          "P": true,
+          "R": true,
+          "B": true,
+          "F": true,
+          "N": true,
+          "C": true,
+          "U": true,
+          "D": true
+        },
+        "paramName": "Chemical Groups"
+      },
+      "propertyParam": {
+        "params": {
+          "ptt": true,
+          "gcp1": true,
+          "gcp2": true,
+          "eps": true,
+          "scm": true,
+          "scv": true,
+          "pie": true,
+          "pah": true,
+          "pbs": true,
+          "isa": true,
+          "z1": true,
+          "z2": true,
+          "z3": true,
+          "mw": true,
+          "bi": true,
+          "khh": true,
+          "hwhh": true,
+          "cch": true,
+          "kh": true,
+          "cdch": true
+        },
+        "paramName": "Aminoacid properties"
+      }
+    }
+  ]
+}
