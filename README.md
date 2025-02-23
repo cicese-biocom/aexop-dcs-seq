@@ -5,7 +5,7 @@
 ### How to execute
 
 ```shell
-    java -jar .\aexop-dcs-seq-0.0.4.jar -h
+    java -jar .\aexop-dcs-seq-{version}.jar -h
 usage: cmd [-c <arg>] [-e <arg>] [-f <arg>] [-h] [-i] [-p <arg>] [-v]
 -c,--csvfile <arg>     output, path to csv file
 -e,--endpoint <arg>    csv file with a column with the target property for sequence
@@ -19,5 +19,5 @@ usage: cmd [-c <arg>] [-e <arg>] [-f <arg>] [-h] [-i] [-p <arg>] [-v]
 ### Example
 
 ```shell
-java -jar aexop-dcs-seq-0.0.4.jar -p "files_examples\project.json" -f "files_examples\training.fasta" -c "salida\out.csv" -e "files_examples\training.fasta_class.csv"
+java -jar aexop-dcs-seq-{version}.jar -p "files_examples\project.json" -f "files_examples\training.fasta" -c "salida\out.csv" -e "files_examples\training.fasta_class.csv"
 ```
